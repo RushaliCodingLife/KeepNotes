@@ -70,8 +70,22 @@ if (notes) {
 // autocomplete
 
 const searchInputData = () => {
-  let filter = document.getElementById("searchInput").value;
-  console.log(searchInputData);
+  let searchInput = document.getElementById("searchInput");
+  const notesClass = document.querySelectorAll(".note");
+
+  let searchValue = searchInput.value;
+  const notes = JSON.parse(localStorage.getItem("notes"));
+  let filterValue = null;
+  if (notes) {
+    filterValue = notes.filter((v) => v.toLowerCase() == searchValue);
+  }
+
+  // console.log(filterValue);
+
+  if (filterValue?.length > 0) {
+   filterValue.forEach((v) => addNewNote(v))
+  }
+
 };
 
 addBtn.addEventListener("click", () => addNewNote());

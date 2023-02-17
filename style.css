@@ -205,3 +205,6 @@ button:hover .button-text {
   align-items: center;
   justify-content: space-between;
 }
+#searchInput{
+  text-transform: lowercase;
+}
